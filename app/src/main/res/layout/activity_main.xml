@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.subhambnikash.roomwithmvvm.repo.MainActivityViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/addPassword"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@={viewModel.titleText}" />
+
+        <EditText
+            android:id="@+id/enterUserId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addPassword"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:text="@={viewModel.userId}"
+            android:hint="@string/enter_user_id"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:autofillHints=""
+            android:importantForAutofill="no" />
+
+        <EditText
+
+            android:id="@+id/enterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enterUserId"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="@string/enter_password"
+            android:minHeight="48dp"
+            android:text="@={viewModel.password}"
+            android:textColorHint="#757575"
+            android:autofillHints=""
+            android:inputType="textPersonName" />
+
+        <LinearLayout
+            android:id="@+id/btnParent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@+id/enterPassword"
+            >
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#428F89"
+                android:onClick="@{()->viewModel.saveOrUpdate()}"
+                android:text="@={viewModel.saveOrUpdateBtn}" />
+
+            <Button
+                android:layout_weight="1"
+                android:backgroundTint="#FF8B66"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.clearOrDelete()}"
+                android:text="@={viewModel.clearBtnTextBtn}" />
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/dataRecyclerView"
+            android:layout_below="@+id/btnParent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+
+
+    </RelativeLayout>
+</layout>

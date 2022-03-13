@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RoomWithMvvm</string>
+    <string name="enter_user_id">Enter User Id</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="add_user_details">Add User Details</string>
+    <string name="add">Add</string>
+</resources>
